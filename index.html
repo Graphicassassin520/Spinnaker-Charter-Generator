@@ -73,14 +73,17 @@
                 canvas.height = img.height;
                 // Draw the template image
                 ctx.drawImage(img, 0, 0);
-                // Set font to 125px with Great Vibes for the name
+                // Set font to 125px with Great Vibes
                 ctx.font = '125px "Great Vibes"';
                 ctx.fillStyle = 'black';
-                // Center the name horizontally (adjust x-coordinate based on your template)
+                // Coordinates for name placement
+                const x = 1814; // X-coordinate as provided
+                const y = 979;  // Y-coordinate as provided
+                // Measure text width to center it horizontally
                 const textWidth = ctx.measureText(name).width;
-                const x = (canvas.width - textWidth) / 2; // Centers the name horizontally
-                const y = canvas.height / 2; // Adjust this based on your template
-                ctx.fillText(name, x, y);
+                const centeredX = x - (textWidth / 2);
+                // Draw the name at the specified coordinates
+                ctx.fillText(name, centeredX, y);
                 // Convert canvas to image and display
                 const dataUrl = canvas.toDataURL('image/png');
                 imgElement.src = dataUrl;
